@@ -5,7 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = {nixpkgs}: let
+  outputs = {
+    self,
+    nixpkgs,
+  }: let
     mkHost = {
       name,
       system ? "x86_64-linux",
@@ -28,4 +31,5 @@
       };
     };
   };
+  packages.x86_64-linux = {};
 }
