@@ -68,7 +68,9 @@
 
   programs.zsh = {
     enable = true;
-    initContent = "echo 'welcome to ${name}";
+    initContent = ''
+      echo welcome to ${name}
+    '';
     shellAliasses = {
       v = "nvim";
       sv = "sudo nvim";
