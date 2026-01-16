@@ -68,7 +68,7 @@
 
   programs.zsh = {
     enable = true;
-    initContent = ''
+    shellInit = ''
       echo welcome to ${name}
     '';
     shellAliasses = {
@@ -77,8 +77,8 @@
       c = "clear";
       ll = "ls -l";
       la = "ls -al";
-      update = "cd ~/HomeServer && nix flake update";
-      upgrade = "cd ~/HomeServer && git fetch && sudo nixos-rebuild switch --flake .${name}";
+      test = "cd ~/HomeServer && git pull && sudo nixos-rebuild switch --flake .#${name}";
+      upgrade = "cd ~/HomeServer && git pull && sudo nixos-rebuild switch --flake .#${name}";
     };
   };
 
