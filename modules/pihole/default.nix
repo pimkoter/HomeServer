@@ -35,6 +35,8 @@ in {
       extraOptions = [
         "--cap-add=NET_ADMIN"
       ];
+
+      restartPolicy = "always";
     };
   };
 
