@@ -1,5 +1,5 @@
 {
-  description = "The ultimate Homelab flake for different VM's";
+  description = "The ultimate Homelab flake for different VMs";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -9,27 +9,27 @@
     self,
     nixpkgs,
   }: let
+    defaultSystem = "x86_64-linux";
+    admin = "pim";
+
     mkHost = {
       name,
-      system ? "x86_64-linux",
+      system ? defaultSystem,
     }:
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit name;
-          admin = "pim";
+          inherit admin;
         };
         modules = [
-          ./modules/${name}/default.nix
           ./modules/common/default.nix
+          ./modules/${name}/default.nix
         ];
       };
   in {
     nixosConfigurations = {
-      pihole = mkHost {
-        name = "pihole";
-      };
+      pihole = mkHost {name = "pihole";};
     };
   };
-  packages.x86_64-linux = {};
 }
