@@ -32,17 +32,17 @@
       allowedTCPPorts = lib.mkDefault [];
     };
 
-    interfaces = {
-      ens18 = {
-        ipv4.addresses = [
-          {
-            # adresses = "IP";
-            prefixLength = 24;
-          }
-        ];
-      };
-    };
-  };
+#   interfaces = {
+#     ens18 = {
+#       ipv4.addresses = [
+#         {
+#           # adresses = "IP";
+#           prefixLength = 24;
+#         }
+#       ];
+#     };
+#   };
+# };
 
   virtualisation = {
     podman = {
