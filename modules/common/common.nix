@@ -42,50 +42,49 @@
     #       ];
     #     };
     #   };
-    # };
-
-    virtualisation = {
-      podman = {
-        enable = true;
-        dockerCompat = true;
-        defaultNetwork.settings.dns_enable = true;
-      };
-    };
-
-    services = {
-      tailscale = {
-        enable = true;
-        useRoutingFeatures = lib.mkDefault "client";
-      };
-      resolved.enable = true;
-      openssh.enable = true;
-    };
-
-    environment.systemPackages = with pkgs; [
-      neovim
-      git
-    ];
-
-    programs.zsh = {
-      enable = true;
-      shellInit = ''
-        echo welcome to ${name}
-      '';
-      shellAliases = {
-        v = "nvim";
-        sv = "sudo nvim";
-        c = "clear";
-        ll = "ls -l";
-        la = "ls -al";
-        test = "cd ~/HomeServer && git pull && sudo nixos-rebuild switch --flake .#${name}";
-        upgrade = "cd ~/HomeServer && git pull && sudo nixos-rebuild switch --flake .#${name}";
-      };
-    };
-
-    time.timeZone = "Europe/Amsterdam";
-    i18n.defaultLocale = "en_US.UTF-8";
-    security.sudo.wheelNeedsPassword = lib.mkDefault true;
-    nix.settings.experimental-features = ["nix-command" "flakes"];
-    system.stateVersion = "25.11";
   };
+
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enable = true;
+    };
+  };
+
+  services = {
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = lib.mkDefault "client";
+    };
+    resolved.enable = true;
+    openssh.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    neovim
+    git
+  ];
+
+  programs.zsh = {
+    enable = true;
+    shellInit = ''
+      echo welcome to ${name}
+    '';
+    shellAliases = {
+      v = "nvim";
+      sv = "sudo nvim";
+      c = "clear";
+      ll = "ls -l";
+      la = "ls -al";
+      test = "cd ~/HomeServer && git pull && sudo nixos-rebuild switch --flake .#${name}";
+      upgrade = "cd ~/HomeServer && git pull && sudo nixos-rebuild switch --flake .#${name}";
+    };
+  };
+
+  time.timeZone = "Europe/Amsterdam";
+  i18n.defaultLocale = "en_US.UTF-8";
+  security.sudo.wheelNeedsPassword = lib.mkDefault true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  system.stateVersion = "25.11";
 }
