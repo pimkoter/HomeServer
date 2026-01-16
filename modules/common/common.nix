@@ -71,7 +71,7 @@
     shellInit = ''
       echo welcome to ${name}
     '';
-    shellAliasses = {
+    shellAliases = {
       v = "nvim";
       sv = "sudo nvim";
       c = "clear";
