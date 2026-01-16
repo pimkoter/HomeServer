@@ -1,4 +1,4 @@
-{password, ...}: let
+let
   configDir = ./config;
 in {
   #### Persistent storage for Pi-hole
@@ -29,6 +29,7 @@ in {
       environment = {
         TZ = "Europe/Amsterdam";
         DNSMASQ_LISTENING = "all";
+        WEBPASSWORD = "pimiseenleukejongen";
       };
 
       extraOptions = [
