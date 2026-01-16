@@ -18,7 +18,7 @@
     shell = pkgs.zsh;
   };
 
-  boot.load.grub = {
+  boot.loader.grub = {
     enable = true;
     device = "/dev/sda";
   };
