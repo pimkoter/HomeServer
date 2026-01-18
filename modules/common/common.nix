@@ -68,8 +68,8 @@
       c = "clear";
       ll = "ls -l";
       la = "ls -al";
-      test = "cd ~/HomeServer && git pull && sudo nixos-rebuild switch --flake .#${name}";
-      upgrade = "cd ~/HomeServer && git pull && sudo nixos-rebuild switch --flake .#${name}";
+      test = "cd ~/homeserver && git pull && sudo nixos-rebuild switch --flake .#${name}";
+      upgrade = "cd ~/homeserver && git pull && sudo nixos-rebuild switch --flake .#${name}";
     };
   };
 
