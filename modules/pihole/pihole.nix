@@ -1,8 +1,10 @@
 {
   services.pihole-ftl = {
     enable = true;
-    lists = [./blocklists.nix];
-    whitelists = [./allowlists.nix];
+    lists = {
+      allow.type = [./blocklists.nix];
+      block.type = [./allowlists.nix];
+    };
     settings = {
       dns = {
         upstreams = ["127.0.0.1#5354"];
