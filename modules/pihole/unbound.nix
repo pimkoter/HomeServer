@@ -14,4 +14,8 @@
       cacheMaxTtl = 604800;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    unbound-root-hints
+  ];
 }
