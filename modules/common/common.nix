@@ -10,7 +10,6 @@
     extraGroups = [
       "wheel"
       "networkmanager"
-      "podman"
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINlP79E5afLrWTGkIX92RqPeqUetb2oCfprwxLdPpxGZ ${admin}@NixBTW"
@@ -42,14 +41,6 @@
     #       ];
     #     };
     #   };
-  };
-
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enable = true;
-    };
   };
 
   services = {
