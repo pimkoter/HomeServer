@@ -1,16 +1,14 @@
 {
   services.pihole-ftl = {
     enable = true;
-    lists = {
-      allow.type = [
-        #"example.com"
-        "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/advertising.txt"
-        "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/tracking.txt"
-        "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/malicious.txt"
-        "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/suspicious.txt"
-        "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/comprehensive.txt"
-      ];
-    };
+    lists = [
+      #"example.com"
+      "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/advertising.txt"
+      "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/tracking.txt"
+      "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/malicious.txt"
+      "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/suspicious.txt"
+      "https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/comprehensive.txt"
+    ];
     settings = {
       dns = {
         upstreams = ["127.0.0.1#5354"];
@@ -23,12 +21,12 @@
         end = "192.168.178.254";
         router = "192.168.178.1";
         leaseTime = "12h";
-        hosts = [
-          "192.168.178.1,router"
-          "192.168.178.2,pihole"
-          "192.168.178.4,jellyfin"
-          #"MAC,IP,NAME"
-        ];
+        #        hosts = [
+        #          "192.168.178.1,router"
+        #          "192.168.178.2,pihole"
+        #          "192.168.178.4,jellyfin"
+        #          #"MAC,IP,NAME"
+        #        ];
       };
       webserver = {
         enable = true;
