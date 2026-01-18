@@ -2,8 +2,8 @@
   services.pihole-ftl = {
     enable = true;
     lists = {
-      allow.type = [./blocklists.nix];
-      block.type = [./allowlists.nix];
+      allow.type = [./blocklists];
+      block.type = [./allowlists];
     };
     settings = {
       dns = {
