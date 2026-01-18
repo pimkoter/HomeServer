@@ -34,7 +34,7 @@
 
     pihole-web = {
       enable = true;
-      port = [80];
+      ports = [80];
     };
   };
 }
