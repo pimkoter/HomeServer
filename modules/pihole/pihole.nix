@@ -30,6 +30,7 @@
       };
       webserver = {
         enable = true;
+        ports = [80];
         api = {
           pwhash = "";
         };
