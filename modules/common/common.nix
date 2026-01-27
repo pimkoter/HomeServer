@@ -39,7 +39,10 @@
       useRoutingFeatures = lib.mkDefault "client";
     };
     resolved.enable = true;
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      passwordAuthentication = false;
+    };
   };
 
   environment.systemPackages = with pkgs; [
