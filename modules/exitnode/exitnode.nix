@@ -7,12 +7,16 @@
   services = {
     tailscale = {
       useRoutingFeatures = "server";
+      extraOptions = ''
+        --advertise-exit-node
+        --accept-dns
+      '';
     };
   };
 
   networking = {
     firewall = {
       allowedTCPPorts = [41641]
-  };
+    };
   };
 }
