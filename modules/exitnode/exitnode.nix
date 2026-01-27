@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
@@ -7,16 +7,16 @@
   services = {
     tailscale = {
       useRoutingFeatures = "server";
-      extraOptions = ''
-        --advertise-exit-node
-        --accept-dns
-      '';
+      extraUpFlags = [
+        "--advertise-exit-node"
+        "--accept-dns"
+      ];
     };
   };
 
   networking = {
     firewall = {
-      allowedTCPPorts = [41641];
+      allowedTCPPorts = [config.services.tailscale.port];
     };
   };
 }
