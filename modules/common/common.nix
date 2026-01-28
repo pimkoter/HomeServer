@@ -38,11 +38,16 @@
       enable = true;
       useRoutingFeatures = lib.mkDefault "client";
     };
-    resolved.enable = true;
     openssh = {
       enable = true;
       passwordAuthentication = false;
     };
+    fail2ban = {
+      enable = true;
+      bantime = "10m";
+      bantime-increment.factor = "6";
+    };
+    resolved.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
